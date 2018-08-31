@@ -1,7 +1,7 @@
 package com.kopranych.userservice.model;
 
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,7 +20,7 @@ public class User {
     private String lastName;
     @Column(name = "BIRTHDATE")
     private LocalDate birthDate;
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String userEmail;
     @Column(name = "PASSWORD")
     private String hashPassword;
