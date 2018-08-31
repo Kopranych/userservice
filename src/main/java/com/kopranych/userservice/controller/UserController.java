@@ -25,4 +25,9 @@ public class UserController {
     public void deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
     }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/getAll")
+    public Iterable<User> getAll(){
+        return userService.getAllUser();
+    }
 }
