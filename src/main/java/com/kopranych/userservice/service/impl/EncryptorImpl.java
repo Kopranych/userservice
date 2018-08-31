@@ -18,7 +18,7 @@ public class EncryptorImpl implements Encryptor{
             byte[] hash =  sha256.digest(password.getBytes("UTF-8"));
 
             for (byte b : hash) {
-                stringBuilder.append(b);
+                stringBuilder.append(String.format("%02X", b));
             }
 
         } catch (NoSuchAlgorithmException e) {
