@@ -18,9 +18,6 @@ public class UserserviceApplicationTests {
 
 	@Autowired
     private UserService userService;
-	@Test
-	public void contextLoads() {
-	}
 
 	@Test
 	public void testAddUser(){
@@ -31,9 +28,9 @@ public class UserserviceApplicationTests {
 
 	@Test
 	public void testGetUser(){
-		User user = new User("Name", "MName", LocalDate.now(), "user@email.com", "123456");
+		User user = new User("Name", "MName", LocalDate.now(), "test@email.com", "123456");
         userService.addNewUser(user);
-		User userTest = userService.getUserByEmail("user@email.com");
+		User userTest = userService.getUserByEmail("test@email.com");
 		Assert.assertEquals(user.getFirstName(), userTest.getFirstName());
 	}
 
@@ -45,17 +42,17 @@ public class UserserviceApplicationTests {
 		}
 
 		userList = (List<User>) userService.getAllUser();
-		Assert.assertEquals(10, userList.size());
+		Assert.assertEquals(12, userList.size());
 	}
 
 	@Test
 	public void testDelUser(){
 		List<User> userList;
-		User user = new User("Name", "MName", LocalDate.now(), "user@email.com", "123456");
+		User user = new User("Name", "MName", LocalDate.now(), "name@email.com", "123456");
 		User testUser = userService.addNewUser(user);
         userService.deleteUser(testUser.getId());
 		userList = (List<User>) userService.getAllUser();
-		Assert.assertEquals(0, userList.size());
+		Assert.assertEquals(2, userList.size());
 	}
 
 }
